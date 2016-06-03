@@ -1,2 +1,2 @@
 # fullstack-react
-a frame with react+koa+falcor
+a frame with react+express+falcor

@@ -1,33 +1,32 @@
 var webpack = require('webpack');
 var path = require('path');
+
 module.exports = {
     entry: {
-        app: "app/index.js"
+        index: ["./app/index"]
     },
     output: {
-        path: path.resolve(__dirname, 'build'),
-        publicPath: /assets/,
-        filename:'[name].bundle.js'
+        path: path.join(__dirname, 'build'),
+        filename: '[name].bundle.js'
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx']
     },
     module: {
         loaders: [
             {
                 test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
+                loader: 'babel',
+                exclude: /node_modules/,
+                include: path.join(__dirname, 'app')
             },
             {
                 test: /.scss$/,
                 loaders: ["style", "css", "sass"]
-            },
-            {
-                test: /\.(png|jpg)$/,
-                loader: "url-loader?limit=8192"
             }
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.HotModuleReplacementPlugin()
     ]
-}
+};
