@@ -5,7 +5,7 @@ import model from './model'
 export default class NamesList extends React.Component {
     constructor() {
         super()
-        this.state = {names: {}}
+        this.state = {products: []}
     }
 
     componentWillMount() {
@@ -13,17 +13,30 @@ export default class NamesList extends React.Component {
     }
 
     render() {
-        var names = Falcor.keys(this.state.names).map(idx => {
-            return <li key={idx}>{this.state.names[idx].name}</li>
+      console.log(this.state.products);
+      var products = this.state.products;
+      var index = 0;
+        var names = products.map(product => {
+            index ++;
+            return <li key={index}>{product.name}</li>
         })
+        console.log(this.state.products);
         return (
+          <div>
+            <h1>新加2233</h1>
             <ul>{names}</ul>
+          </div>
+
         )
     }
 
     update() {
-        model.getValue(['names', 'length'])
-            .then(length => model.get(['names', {from: 0, to: length-1}, 'name']))
-            .then(response => this.setState({names: response.json.names}))
+        model.get('menu')
+        .then(response => {
+          const products = JSON.parse(response.json.menu)
+          this.setState({
+            products:products
+          })
+        })
     }
 }

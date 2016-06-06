@@ -5,28 +5,27 @@ import config from './webpack.config';
 import express from 'express';
 import falcorServer from 'falcor-express'
 import bodyParser from 'body-parser'
-import router from './server/router'
+import Router from './server/router'
 
 
 const compile = webpack(config);
-config.entry.index.push('webpack-hot-middleware/client');
-
 var app = new express();
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/model.json', falcorServer.dataSourceRoute(() => new router()));
+app.use(bodyParser.json());
 
 app.use(webpackDevMiddleware(compile, {
-    noInfo: true
+    noInfo: true,
+    publicPath: config.output.publicPath
 }));
 
 app.use(webpackHotMiddleware(compile, {}));
 
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + '/build/index.html')
-});
+app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + 'public'));
 
-app.use(express.static('build'));
+app.use('/model.json', falcorServer.dataSourceRoute((req, res) => new Router(req.body.jsonGraph)));
+
 app.listen(3000, err => {
     if(err) {
         console.error(err);

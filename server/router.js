@@ -1,46 +1,22 @@
-var Router = require('falcor-router'),
-    names = require('./names'),
-    NamesRouter = Router.createClass([
-        {
-            route: 'names[{integers:nameIndexes}]["name"]',
-            get: (pathSet) => {
-                var results = [];
-                pathSet.nameIndexes.forEach(nameIndex => {
-                    if (names.length > nameIndex) {
-                        results.push({
-                            path: ['names', nameIndex, 'name'],
-                            value: names[nameIndex].name
-                        })
-                    }
-                })
-                return results
-            }
-        },
-        {
-            route: 'names.length',
-            get: () => {
-                return {path: ['names', 'length'], value: names.length}
-            }
-        },
-        {
-            route: 'names.add',
-            call: (callPath, args) => {
-                var newName = args[0];
+import falcorRouter from 'falcor-router'
+import { getProducts, setProducts } from './controller'
 
-                names.push({name: newName})
-
-                return [
-                    {
-                        path: ['names', names.length-1, 'name'],
-                        value: newName
-                    },
-                    {
-                        path: ['names', 'length'],
-                        value: names.length
-                    }
-                ]
-            }
-        }
-    ])
-
-module.exports = NamesRouter
+export default class Router extends falcorRouter.createClass([
+  {
+    route: 'menu',
+    get: async function (pathSet) {
+      const products = await getProducts().then(products => products)
+      return {path: ['menu'], value: products }
+    },
+    set() {
+      const products = JSON.parse(this.menu).jsonGraph.menu.value.products
+      setProducts(JSON.stringify(products, null, '\t'))
+      return { path: ['menu'], value: JSON.stringify({products})}
+    }
+  }
+]){
+  constructor(products){
+    super()
+    this.menu = products
+  }
+}
