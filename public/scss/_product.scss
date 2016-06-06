@@ -1,18 +1,100 @@
 .products{
   position: relative;
   overflow: hidden;
-  margin: 14px 0 0;
   padding: 0 0 2px;
   .product-item{
     position: relative;
     width: 50%;
     display: inline-block;
-    padding: 0 10px 14px 14px;
     box-sizing: border-box;
     float: left;
-    img {
-      width: 100%;
-      margin: 0 auto;
+    text-align: center;
+    .product-box{
+      border: 1px solid #ddd;
+      width: 90%;
+      display: inline-block;
+      margin-top: 20px;
+      padding-bottom: 20px;
+      a.product-name{
+        display: block;
+        margin: 10px 0;
+        color:#000;
+        &:hover{
+          color:red;
+        }
+      }
+      h2{
+        margin: 10px 0;
+        font-size: 22px;
+        height: 50px;
+      }
+      p{
+        span{
+          color:red;
+        }
+      }
+      img {
+        width: 100%;
+      }
     }
+
   }
 }
+
+ .product-info{
+   .product-nav{
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 50px;
+      font-size: 18px;
+      z-index: 9999;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      .titlebar-back{
+        position: absolute;
+        height: 36px;
+        line-height: 36px;
+        left: 8px;
+        top: 7px;
+        font-size: 17px;
+        color: #595959;
+        padding: 0 14px 0 25px;
+        background-position: 9px 7px;
+        overflow: hidden;
+      }
+      .titlebar-title{
+        text-align: center;
+        height: 100%;
+        line-height: 3pc;
+        white-space: nowrap;
+        color: #ff505a;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+   }
+   .product-container{
+     margin-top: 50 !important;
+     .productInfo-img{
+       position: relative;
+       min-height: 200px;
+       img{
+         width: 100%;
+         height: auto;
+         display: block;
+       }
+     }
+     .product-content{
+       width: 96%;
+       margin: 10px auto;
+       h2{
+         line-height: 40px;
+         border-bottom: 1px solid #ddd;
+       }
+       p{
+         padding: 10px 0;
+         line-height: 20px;
+       }
+     }
+   }
+ }

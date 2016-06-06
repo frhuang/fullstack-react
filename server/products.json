@@ -1,50 +1,56 @@
 [
 	{
 		"id": 1,
-		"pic": "./public/images/product1.jpg",
-		"name": "花腩饭汤套餐",
+		"pic": "/public/images/product1.jpg",
+		"name": "ORA-X 智能AR耳机",
 		"num": 4961,
-		"money": 28.5,
-		"number": 0
+		"money": 999.00,
+		"number": 0,
+		"disc": "除了听音乐还可以看视频，本质上就是一款头戴式平板，用户可以通过50毫米驱动器欣赏音乐，也可以下拉屏幕，享受增强现实的乐趣。"
 	},
 	{
 		"id": 2,
-		"pic": "./public/images/product1.jpg",
-		"name": "排骨拼鸡腿肉饭汤套餐",
+		"pic": "/public/images/product2.jpg",
+		"name": "Bionic Bird 遥控仿真飞鸟",
 		"num": 345,
-		"money": 16.5,
-		"number": 0
+		"price": 1288.00,
+		"number": 0,
+		"disc": "Bionic Bird 的遥控飞鸟，完全参照雀鸟的飞行方式设计而成，马达驱动双翼拍打以产生上升的动力。"
 	},
 	{
 		"id": 3,
-		"pic": "./public/images/product1.jpg",
-		"name": "香辣焗翅",
+		"pic": "/public/images/product3.jpg",
+		"name": "PolyEyes 2.0头盔",
 		"num": 144,
-		"money": 7,
-		"number": 0
+		"price": 8000,
+		"number": 0,
+		"disc": "模仿变色龙眼睛的头戴式设备，利用能自由旋转，并连接有电脑模块和显示屏的摄像头，可以让你同时看到不同方向上的景观，有时甚至还会产生反胃的效果。"
 	},
 	{
 		"id": 4,
-		"pic": "./public/images/product1.jpg",
-		"name": "冬菇鸡饭",
+		"pic": "/public/images/product4.jpg",
+		"name": "Makeblock 四合一绘图机器人",
 		"num": 17,
-		"money": 20,
-		"number": 0
+		"price": 1519.00,
+		"number": 0,
+		"disc": "四合一绘图机器人金属套件墙壁作画写字雕刻"
 	},
 	{
 		"id": 5,
-		"pic": "./public/images/product1.jpg",
-		"name": "冬菇鸡腿饭",
+		"pic": "/public/images/product5.jpg",
+		"name": "powerup 3.0 遥控纸飞机",
 		"num": 1990,
-		"money": 12,
-		"number": 0
+		"price": 469.00,
+		"number": 0,
+		"disc": "回忆儿童时候的游戏感觉，纸飞机飞到过去，手机遥控更有乐趣！想怎么用就怎么用！"
 	},
 	{
 		"id": 6,
-		"pic": "./public/images/product1.jpg",
-		"name": "鱼香肉丝",
+		"pic": "/public/images/product6.jpg",
+		"name": "Galaxy Magnetic Clock 概念行星磁力时钟",
 		"num": 5,
-		"money": 30,
-		"number": 0
+		"price": 30,
+		"number": 0,
+		"disc": "火星为分针；地球为时针；金星为秒针。 三个行星似乎神奇的漂浮在空中。 独家橡胶涂层钟面标记旋转时不会造成损害。"
 	}
 ]
