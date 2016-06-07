@@ -3,9 +3,9 @@
 		"id": 1,
 		"pic": "/public/images/product1.jpg",
 		"name": "ORA-X 智能AR耳机",
-		"num": 4961,
-		"money": 999.00,
-		"number": 0,
+		"num": 1414,
+		"price": 999,
+		"number": 2,
 		"disc": "除了听音乐还可以看视频，本质上就是一款头戴式平板，用户可以通过50毫米驱动器欣赏音乐，也可以下拉屏幕，享受增强现实的乐趣。"
 	},
 	{
@@ -13,8 +13,8 @@
 		"pic": "/public/images/product2.jpg",
 		"name": "Bionic Bird 遥控仿真飞鸟",
 		"num": 345,
-		"price": 1288.00,
-		"number": 0,
+		"price": 1288,
+		"number": 1,
 		"disc": "Bionic Bird 的遥控飞鸟，完全参照雀鸟的飞行方式设计而成，马达驱动双翼拍打以产生上升的动力。"
 	},
 	{
@@ -31,7 +31,7 @@
 		"pic": "/public/images/product4.jpg",
 		"name": "Makeblock 四合一绘图机器人",
 		"num": 17,
-		"price": 1519.00,
+		"price": 1519,
 		"number": 0,
 		"disc": "四合一绘图机器人金属套件墙壁作画写字雕刻"
 	},
@@ -40,7 +40,7 @@
 		"pic": "/public/images/product5.jpg",
 		"name": "powerup 3.0 遥控纸飞机",
 		"num": 1990,
-		"price": 469.00,
+		"price": 469,
 		"number": 0,
 		"disc": "回忆儿童时候的游戏感觉，纸飞机飞到过去，手机遥控更有乐趣！想怎么用就怎么用！"
 	},

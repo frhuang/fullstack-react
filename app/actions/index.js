@@ -20,30 +20,59 @@ export const receiveProductInfo = response => {
 
 export const getAllProducts = () => {
   return dispatch => {
-    getProducts(dispatch)
+    model.get('menu')
+    .then(response => {
+      const products = JSON.parse(response.json.menu)
+      dispatch(receiveAllProducts(products))
+    },
+      error => console.log(error))
   }
 }
 
 export const getProductById = (id) => {
-  return dispatch => {
-    model.get('menu')
-      .then(response => {
-        const products = JSON.parse(response.json.menu)
-        products.map(product => {
-          var i = product.id;
-          if(i == id){
-            return dispatch(receiveProductInfo(product))
-          }
-        })
-      })
+  return (dispatch, getState) => {
+    const state = Object.assign({}, getState())
+    let products = state.products
+    products.some(product => {
+      if(product.id === id){
+        return dispatch(receiveProductInfo(product))
+      }
+    })
   }
 }
 
-const getProducts = dispatch => {
-  model.get('menu')
-  .then(response => {
-    const products = JSON.parse(response.json.menu)
-    dispatch(receiveAllProducts(products))
-  },
-    error => console.log(error))
+export const addToCart = (id, num) => {
+  return (dispatch, getState) => {
+		const state = Object.assign({}, getState())
+		let products = state.products
+    products.some(product => {
+      if(product.id === id){
+        product.number += num;
+        return true;
+      }
+    })
+		sendProducts(dispatch, products)
+	}
+}
+
+export const changeCartNum = (id, num) => {
+  return (dispatch, getState) => {
+		const state = Object.assign({}, getState())
+		let products = state.products
+    products.some(product => {
+      if(product.id === id){
+        product.number = num;
+        return true;
+      }
+    })
+		sendProducts(dispatch, products)
+	}
+}
+
+const sendProducts = (dispatch, products) => {
+	model.setValue(['menu'], { products })
+		.then(response => {
+			const products = JSON.parse(response).products
+			dispatch(receiveAllProducts(products))
+		})
 }

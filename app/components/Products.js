@@ -13,7 +13,9 @@ export default class Products extends Component {
     })
     return (
       <div className="products">
-        <h1>商品列表</h1>
+        <div className="product-nav">
+          <div className="titlebar-title">商品列表</div>
+        </div>
         {lists}
       </div>
     )

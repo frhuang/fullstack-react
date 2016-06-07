@@ -1,0 +1,27 @@
+.counter{
+  position: relative;
+  .counter-button {
+      width: 24px;
+      height: 24px;
+      border: none;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fff;
+      vertical-align: middle;
+      display: inline-block;
+      &.dec-icon{
+        background-image: url(../images/decrument.png);
+      }
+      &.inc-icon{
+        background-image: url(../images/incrument.png);
+      }
+  }
+  input{
+    width: 30px;
+    height: 22px;
+    margin: 0 5px;
+    text-align: center;
+    border: 0;
+  }
+}
