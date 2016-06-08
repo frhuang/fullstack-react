@@ -1,2 +1,2 @@
 # fullstack-react
-a frame with react+express+falcor, a short-cart example
+a frame with react+express+falcor, a shop-cart example

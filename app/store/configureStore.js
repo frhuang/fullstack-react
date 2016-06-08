@@ -2,17 +2,24 @@ import { createStore, applyMiddleware, compose  } from 'redux'
 import rootReducer from '../reducers'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
+import { routerMiddleware } from 'react-router-redux'
 
-const middleware = process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger]
-const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore)
+import { getAllProducts } from '../actions'
 
-export default function configureStore() {
-  const store = createStoreWithMiddleware(rootReducer)
+const middleware = process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger()]
+
+export default function configureStore(history) {
+  const store = createStore(
+    rootReducer,
+    compose(applyMiddleware(...middleware))
+  )
   if(module.hot) {
-        module.hot.accept('../reducers', () => {
-            const nextReducer = require('../reducers').default;
-            store.replaceReducer(nextReducer);
-        })
-    }
-  return store
+      module.hot.accept('../reducers', () => {
+          const nextReducer = require('../reducers');
+          store.replaceReducer(nextReducer);
+      })
+  }
+
+  store.dispatch(getAllProducts())
+  return store;
 }

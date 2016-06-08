@@ -5,7 +5,7 @@
 		"name": "ORA-X 智能AR耳机",
 		"num": 1414,
 		"price": 999,
-		"number": 2,
+		"number": 1,
 		"disc": "除了听音乐还可以看视频，本质上就是一款头戴式平板，用户可以通过50毫米驱动器欣赏音乐，也可以下拉屏幕，享受增强现实的乐趣。"
 	},
 	{
@@ -14,7 +14,7 @@
 		"name": "Bionic Bird 遥控仿真飞鸟",
 		"num": 345,
 		"price": 1288,
-		"number": 1,
+		"number": 0,
 		"disc": "Bionic Bird 的遥控飞鸟，完全参照雀鸟的飞行方式设计而成，马达驱动双翼拍打以产生上升的动力。"
 	},
 	{
@@ -48,7 +48,7 @@
 		"id": 6,
 		"pic": "/public/images/product6.jpg",
 		"name": "Galaxy Magnetic Clock 概念行星磁力时钟",
-		"num": 5,
+		"num": 50,
 		"price": 30,
 		"number": 0,
 		"disc": "火星为分针；地球为时针；金星为秒针。 三个行星似乎神奇的漂浮在空中。 独家橡胶涂层钟面标记旋转时不会造成损害。"

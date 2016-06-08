@@ -20,9 +20,9 @@ export const receiveProductInfo = response => {
 
 export const getAllProducts = () => {
   return dispatch => {
-    model.get('menu')
+    model.get('product')
     .then(response => {
-      const products = JSON.parse(response.json.menu)
+      const products = JSON.parse(response.json.product)
       dispatch(receiveAllProducts(products))
     },
       error => console.log(error))
@@ -69,8 +69,33 @@ export const changeCartNum = (id, num) => {
 	}
 }
 
+export const removeCartById = (id) => {
+  return (dispatch, getState) => {
+		const state = Object.assign({}, getState())
+		let products = state.products
+    products.some(product => {
+      if(product.id === id){
+        product.number = 0;
+        return true;
+      }
+    })
+		sendProducts(dispatch, products)
+	}
+}
+
+export const accountCart = () => {
+  return (dispatch, getState) => {
+		const state = Object.assign({}, getState())
+		let products = state.products
+    products.some(product => {
+      product.number = 0;
+    })
+		sendProducts(dispatch, products)
+	}
+}
+
 const sendProducts = (dispatch, products) => {
-	model.setValue(['menu'], { products })
+	model.setValue(['product'], { products })
 		.then(response => {
 			const products = JSON.parse(response).products
 			dispatch(receiveAllProducts(products))

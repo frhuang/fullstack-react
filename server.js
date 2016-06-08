@@ -22,7 +22,6 @@ app.use(webpackDevMiddleware(compile, {
 app.use(webpackHotMiddleware(compile, {}));
 
 app.use(express.static(__dirname + '/'));
-app.use(express.static(__dirname + 'public'));
 
 app.use('/model.json', falcorServer.dataSourceRoute((req, res) => new Router(req.body.jsonGraph)));
 

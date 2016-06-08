@@ -15,21 +15,33 @@ class Cart extends Component {
   handleBack() {
     this.context.router.goBack()
   }
+  removeCartById(id){
+    this.props.actions.removeCartById(id)
+  }
+  accountCart() {
+    const { cart } = this.props;
+    if(cart.length > 0){
+      var isOk = confirm('确认支付？');
+      if(isOk){
+        this.props.actions.accountCart()
+        this.handleBack()
+      }
+    }
+  }
   render() {
     const { cart, actions } = this.props
-    console.log(cart)
     const nodes = cart.map(product => {
-      return <CartItem {...product} handleChange={(id, num) => this.handleChange(id, num)} />
+      return <CartItem key={product.id} {...product} removeCartById={(id) => this.removeCartById(id)} handleChange={(id, num) => this.handleChange(id, num)} />
     })
     const total = cart.reduce((t, c) => t + c.number * c.price, 0)
     return (
       <div className="cart-info">
         <TitleBar title="购物车" handleBack={this.handleBack.bind(this)} />
         <div className="cart-container">
-          {nodes}
+          {cart.length > 0 ? nodes : <div className="cartItem-no">购物车空空如也,快去购物吧</div>}
           <div className="cart-total">
             <p>合计：{total}元</p>
-            <div className="cart-btn">结算</div>
+            <div className="cart-btn" onClick={this.accountCart.bind(this)}>结算</div>
           </div>
         </div>
       </div>

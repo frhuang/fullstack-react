@@ -6,7 +6,6 @@ export default class Counter extends Component {
     this.state = {
       number: this.props.number
     }
-    console.log('number:' + this.props.number);
   }
   handleOnChange(e) {
     this.props.handleChange(this.state.number);

@@ -41,7 +41,6 @@ class ProductInfo extends Component {
     const { productInfo, actions, cart } = this.props;
     const { id, name, pic, disc, price, num, number} = productInfo
     var len = this.getCartNumber(cart)
-    console.log(len)
     return (
       <div className="product-info">
         <TitleBar title="商品详情" handleBack={this.handleBack.bind(this)} />
