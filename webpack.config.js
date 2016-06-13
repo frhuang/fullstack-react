@@ -48,10 +48,7 @@ if(TARGET === 'start' || !TARGET) {
 	  },
     plugins: [
   		new webpack.DefinePlugin({
-  	      'process.env': {
-  	        NODE_ENV: '"development"',
-  	      },
-  	      __DEVELOPMENT__: true,
+  	      'process.env.NODE_ENV': JSON.stringify('development')
   	    }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
@@ -66,10 +63,7 @@ if(TARGET === 'start' || !TARGET) {
   	},
   	plugins: [
   		new webpack.DefinePlugin({
-  			'precess.env': {
-  				NODE_ENV: '"production"'
-  			},
-  			__DEVELOPMENT__: false
+        'process.env.NODE_ENV': JSON.stringify('production')
   		}),
   		new webpack.optimize.DedupePlugin(),
   		new webpack.optimize.OccurenceOrderPlugin(),
